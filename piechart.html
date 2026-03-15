@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <title>Ορυκτά και Ζώδια - Ζωδιακός Κύκλος και Ορυκτά</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<header>
+    <img src="geoastralogo.png" alt="Λογότυπο" width="80">
+    <h1>Γεωλογία και Ζώδια</h1>
+    <h2>Ζώδια, Στοιχεία, Ορυκτά και πολλά ακόμη</h2>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Αρχική</a></li>
+        <li><a href="piechart.html">Ζωδιακός Κύκλος και Ορυκτά</a></li>
+        <li><a href="list2.html">Ζωδιακός Πίνακας</a></li>
+        <li><a href="references.html">Βιβλιογραφία και πηγές</a></li>
+        <li><a href="contact.html">Επικοινωνία</a></li>
+    </ul>
+</nav>
+    <main>
+    <h1>Ζωδιακός Κύκλος</h1>
+    <h2 class="chart-instruction">Πατήστε το κομμάτι της πίτας για να δείτε το τυχερό σας ορυκτό!</h2> 
+    
+    <div class="chart-container">
+        <canvas id="zodiacPie"></canvas>
+    
+    </div>
+        <div class="legend">
+            <div class="legend-item"><div class="legend-color">♈</div> Κριός </div>
+            <div class="legend-item"><div class="legend-color">♉</div> Ταύρος </div>
+            <div class="legend-item"><div class="legend-color">♊</div> Δίδυμοι </div>
+            <div class="legend-item"><div class="legend-color">♋</div> Καρκίνος </div>
+            <div class="legend-item"><div class="legend-color">♌</div> Λέων </div>
+            <div class="legend-item"><div class="legend-color">♍</div> Παρθένος </div>
+            <div class="legend-item"><div class="legend-color">♎</div> Ζυγός </div>
+            <div class="legend-item"><div class="legend-color">♏</div> Σκορπιός </div>
+            <div class="legend-item"><div class="legend-color">♐</div> Τοξότης </div>
+            <div class="legend-item"><div class="legend-color">♑</div> Αιγόκερως </div>
+            <div class="legend-item"><div class="legend-color">♒</div> Υδροχόος </div>
+            <div class="legend-item"><div class="legend-color">♓</div> Ιχθύες </div>
+
+            <hr>
+
+            <div class="legend-item"><div class="legend-color">🌱</div> Άνοιξη</div>
+            <div class="legend-item"><div class="legend-color">☀️</div> Καλοκαίρι</div>
+            <div class="legend-item"><div class="legend-color">🍂</div> Φθινόπωρο</div>
+            <div class="legend-item"><div class="legend-color">❄️</div> Χειμώνας</div>
+	    
+            <hr>
+            <div class="legend-item"><div class="legend-color">🜂</div> Φωτιά</div>
+            <div class="legend-item"><div class="legend-color">🜃</div> Γη</div>
+            <div class="legend-item"><div class="legend-color">🜁</div> Αέρας</div>
+            <div class="legend-item"><div class="legend-color">🜄</div> Νερό</div>
+            <hr>
+            <div class="legend-item"><div class="legend-color">♂</div> Άρης</div>
+            <div class="legend-item"><div class="legend-color">♀</div> Αφροδίτη</div>
+            <div class="legend-item"><div class="legend-color">☿</div> Ερμής</div>
+            <div class="legend-item"><div class="legend-color">☽</div> Σελήνη</div>
+            <div class="legend-item"><div class="legend-color">☉</div> Ήλιος</div>
+            <div class="legend-item"><div class="legend-color">☿</div> Ερμής (Summer)</div>
+            <div class="legend-item"><div class="legend-color">♀</div> Αφροδίτη (Autumn)</div>
+            <div class="legend-item"><div class="legend-color">♇</div> Πλούτωνας</div>
+            <div class="legend-item"><div class="legend-color">♃</div> Δίας</div>
+            <div class="legend-item"><div class="legend-color">♄</div> Κρόνος</div>
+            <div class="legend-item"><div class="legend-color">♅</div> Ουρανός</div>
+            <div class="legend-item"><div class="legend-color">♆</div> Ποσειδώνας</div>
+        </div>
+    </main>
+    <script>
+        const zodiacData = [
+            { name: 'aries', symbol: '♈', element: 'fire', season: 'spring', planet: '♂', elementSymbol: '🜂' },
+            { name: 'taurus', symbol: '♉', element: 'earth', season: 'spring', planet: '♀', elementSymbol: '🜃' },
+            { name: 'gemini', symbol: '♊', element: 'air', season: 'spring', planet: '☿', elementSymbol: '🜁' },
+            { name: 'cancer', symbol: '♋', element: 'water', season: 'summer', planet: '☽', elementSymbol: '🜄' },
+            { name: 'leo', symbol: '♌', element: 'fire', season: 'summer', planet: '☉', elementSymbol: '🜂' },
+            { name: 'virgo', symbol: '♍', element: 'earth', season: 'summer', planet: '☿', elementSymbol: '🜃' },
+            { name: 'libra', symbol: '♎', element: 'air', season: 'autumn', planet: '♀', elementSymbol: '🜁' },
+            { name: 'scorpio', symbol: '♏', element: 'water', season: 'autumn', planet: '♇', elementSymbol: '🜄' },
+            { name: 'sagittarius', symbol: '♐', element: 'fire', season: 'autumn', planet: '♃', elementSymbol: '🜂' },
+            { name: 'capricorn', symbol: '♑', element: 'earth', season: 'winter', planet: '♄', elementSymbol: '🜃' },
+            { name: 'aquarius', symbol: '♒', element: 'air', season: 'winter', planet: '♅', elementSymbol: '🜁' },
+            { name: 'pisces', name: 'pisces', symbol: '♓', element: 'water', season: 'winter', planet: '♆', elementSymbol: '🜄' }
+        ];
+
+        // The colors for the Element ring (Index 2 in datasets array)
+        const elementColors = [
+            '#A52A2A', '#00FFFF', '#0000FF', '#FF0000',
+            '#A52A2A', '#00FFFF', '#0000FF', '#FF0000',
+            '#A52A2A', '#00FFFF', '#0000FF', '#FF0000',
+            '#A52A2A', '#00FFFF', '#0000FF', '#FF0000'
+        ];
+        // The colors for the Season ring (Index 1 in datasets array)
+        const seasonColors = [
+            '#FFFFFF', '#FFFFFF', '#FFFFFF', // Spring (white/light)
+            '#00FF7F', '#00FF7F', '#00FF7F', // Summer (green)
+            '#FFA500', '#FFA500', '#FFA500', // Autumn (orange)
+            '#808080', '#808080', '#808080' // Winter (gray)
+        ];
+
+        // Datasets are defined for 4 rings: Zodiac, Season, Element, Planet
+        const datasets = [
+            { data: new Array(12).fill(1), backgroundColor: Array(12).fill('#FFFFFF'), borderColor: '#fff', borderWidth: 1 }, // Zodiac Ring (Index 0)
+            { data: new Array(12).fill(1), backgroundColor: seasonColors, borderColor: '#fff', borderWidth: 1 }, // Season Ring (Index 1)
+            { data: new Array(12).fill(1), backgroundColor: elementColors, borderColor: '#fff', borderWidth: 1 }, // Element Ring (Index 2)
+            { data: new Array(12).fill(1), backgroundColor: Array(12).fill('#FFFFFF'), borderColor: '#fff', borderWidth: 1 } // Planet Ring (Index 3)
+        ];
+
+        const canvas = document.getElementById('zodiacPie');
+        const ctx = canvas.getContext('2d');
+
+        const zodiacChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: { labels: new Array(12).fill(''), datasets: datasets },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                cutout: '15%',
+                rotation: -90, // Start slice 0 (Aries) at the top
+                plugins: { legend: { display: false }, tooltip: { enabled: false } }
+            },
+            plugins: [{
+                id: 'symbolsInsideSlices',
+                // Custom drawing logic remains the same for symbols
+                afterDraw: chart => {
+                    const { ctx, chartArea: { top, left, width, height } } = chart;
+                    const cx = left + width / 2;
+                    const cy = top + height / 2;
+                    const radius = Math.min(width, height) / 2 * 0.95;
+                    const sliceAngle = (2 * Math.PI) / 12;
+                    const cutoutRadius = radius * 0.15;
+                    const ringWidth = (radius - cutoutRadius) / datasets.length;
+
+                    zodiacData.forEach((z, i) => {
+                        const texts = [
+                            z.symbol,
+                            z.elementSymbol,
+                            { spring: '🌱', summer: '☀️', autumn: '🍂', winter: '❄️' }[z.season],
+                            z.planet
+                        ];
+                        texts.forEach((txt, ringIndex) => {
+                            let r = cutoutRadius + ringWidth * (ringIndex + 0.5);
+                            if (ringIndex === 2) r += ringWidth * 0.1; // Season symbols outward
+                            ctx.save();
+                            ctx.fillStyle = "#000";
+                            const fontSize = ringIndex === 0 ? ringWidth * 0.5 : ringWidth * 0.55;
+                            ctx.font = `${fontSize}px Segoe UI, Arial`;
+                            ctx.textAlign = "center";
+                            ctx.textBaseline = "middle";
+                            
+                            // Calculate angle for the center of the slice
+                            const angle = -0.5 * Math.PI + i * sliceAngle + sliceAngle / 2;
+
+                            ctx.fillText(txt, 
+                                cx + Math.cos(angle) * r,
+                                cy + Math.sin(angle) * r);
+                            ctx.restore();
+                        });
+                    });
+                }
+            }]
+        });
+
+        // =========================================================
+        // CLICK HANDLER LOGIC (ΤΡΟΠΟΠΟΙΗΘΗΚΕ ΓΙΑ list.html#id)
+        // =========================================================
+
+        canvas.onclick = function (evt) {
+            const rect = canvas.getBoundingClientRect();
+            const mouseX = evt.clientX - rect.left;
+            const mouseY = evt.clientY - rect.top;
+
+            const center = {
+                x: zodiacChart.chartArea.left + zodiacChart.chartArea.width / 2,
+                y: zodiacChart.chartArea.top + zodiacChart.chartArea.height / 2
+            };
+
+            const dx = mouseX - center.x;
+            const dy = mouseY - center.y;
+
+            // Distance from center
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            const outerRadius = Math.min(zodiacChart.chartArea.width, zodiacChart.chartArea.height) / 2;
+            const cutoutRadius = outerRadius * 0.15; // Matches your doughnut cutout
+
+            // Only respond if click is inside the doughnut ring area
+            if (distance > cutoutRadius && distance < outerRadius) {
+                // Calculate angle (0 = top, clockwise)
+                let angle = Math.atan2(dy, dx) + Math.PI / 2; // Adjust so top = 0
+                if (angle < 0) angle += 2 * Math.PI;
+
+                // 12 slices → calculate which zodiac slice was clicked
+                const sliceIndex = Math.floor(angle / (2 * Math.PI / 12));
+
+                // Navigate to the corresponding page using the new single file approach
+                const zodiacInfo = zodiacData[sliceIndex];
+                // Η αλλαγή είναι εδώ: πηγαίνουμε στο list.html#το_όνομα_του_ζωδίου
+                const targetURL = `list.html#${zodiacInfo.name}`; 
+                console.log(`Clicked on ${zodiacInfo.name} → Navigating to ${targetURL}`);
+                window.location.href = targetURL;
+            }
+        };
+
+
+    </script>
+<footer>
+        <p>&copy; 2025 Geoastrology • Όροι Χρήσης • Πολιτική Απορρήτου</p>
+</footer>
+</body>
+</html>

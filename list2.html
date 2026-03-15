@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="utf-8" />
+  <title>Ζωδιακός Πίνακας</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Search bar style */
+    #tableSearch {
+      width: 100%;
+      max-width: 400px;
+      padding: 8px 12px;
+      margin-bottom: 12px;
+      border-radius: 6px;
+      border: 1px solid #bcd0df;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+<!-- =========================================================
+    HEADER: Περιέχει το "λογότυπο" (εικόνα), τον κύριο τίτλο και υπότιτλο.
+    Μορφοποιείται από τους selectors: header, header img (στο style.css)
+    ========================================================= -->
+    <header>
+        <!-- ΛΟΓΟΤΥΠΟ: Βάλε εδώ το δικό σου logo αρχείο (π.χ. logo.png).
+        Το width ρυθμίζει οπτικά το μέγεθος της εικόνας. -->
+        <img src="geoastralogo.png" alt="Λογότυπο" width="80">
+        <h1>Ορυκτά και Ζώδια</h1>
+        <h2>Μια συνοπτική λίστα</h2>
+    </header>
+
+    <!-- =========================================================
+    NAV (Μενού): Απλή λίστα με συνδέσμους στις υπόλοιπες σελίδες.
+    Οι selectors nav ul / nav li / nav a διαμορφώνουν εμφάνιση & στοίχιση.
+    ========================================================= -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Αρχική</a></li>
+            <li><a href="piechart.html">Ζωδιακός Κύκλος και Ορυκτά</a></li>
+            <li><a href="list2.html">Ζωδιακός Πίνακας</a></li>
+            <li><a href="references.html">Βιβλιογραφία και πηγές</a></li>
+            <li><a href="contact.html">Επικοινωνία</a></li>
+        </ul>
+    </nav>
+  <div class="card">
+<main>
+    <h1>Ζωδιακός Πίνακας</h1>
+
+    <div class="controls">
+      <input type="text" id="tableSearch" placeholder="Αναζήτηση στον πίνακα…">
+      <button id="downloadCsv">Download CSV</button>
+      <button id="copyHtml" class="secondary">Copy HTML table</button>
+      <span class="small">Αντιγράψτε τον πίνακα σε html ή αποθηκεύστε το αρχείο ως <strong>zodiac-table.csv</strong>.</span>
+    </div>
+</main>
+    <table id="zodiacTable" aria-label="Ζωδιακός Πίνακας">
+      <thead>
+        <tr>
+          <th>Σύμβολο Ζωδίου</th>
+          <th>Ζώδιο</th>
+          <th>Σύμβολο Δυαδικότητας</th>
+          <th>Δυαδικότητα</th>
+          <th>Σύμβολο Τριπλότητας</th>
+          <th>Τριπλότητα</th>
+          <th>Εποχή</th>
+          <th>Τετραπλότητα</th>
+          <th>Κυβερνήτης Πλανήτης</th>
+          <th>Μαγική Πέτρα</th>
+          <th>Μέταλλο</th>
+          <th>Χρώμα(τα)</th>
+          <th>Πολικότητα</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="mono">♈</td><td>ΚΡΙΟΣ</td><td>♂</td><td>Αρσενική / Ενεργητική</td><td>🜂</td><td>Φωτιά</td><td>Άνοιξη</td><td>Παρορμητικό</td><td>Άρης</td><td>Διαμάντι</td><td>Σίδηρος</td><td>Κόκκινο</td><td>ΖΥΓΟΣ</td></tr>
+        <tr><td class="mono">♉</td><td>ΤΑΥΡΟΣ</td><td>♀</td><td>Θηλυκή / Παθητική</td><td>🜃</td><td>Γη</td><td>Άνοιξη</td><td>Σταθερό</td><td>Αφροδίτη</td><td>Σμαράγδι</td><td>Χαλκός</td><td>Ανοιχτό μπλε και μωβ</td><td>ΣΚΟΡΠΙΟΣ</td></tr>
+        <tr><td class="mono">♊</td><td>ΔΙΔΥΜΟΙ</td><td>♂</td><td>Αρσενική / Ενεργητική</td><td>🜁</td><td>Αέρας</td><td>Άνοιξη</td><td>Μεταβλητό</td><td>Ερμής</td><td>Αχάτης</td><td>Υδράργυρος</td><td>Κίτρινο</td><td>ΤΟΞΟΤΗΣ</td></tr>
+        <tr><td class="mono">♋</td><td>ΚΑΡΚΙΝΟΣ</td><td>♀</td><td>Θηλυκή / Παθητική</td><td>🜄</td><td>Νερό</td><td>Καλοκαίρι</td><td>Παρορμητικό</td><td>Σελήνη</td><td>Μαργαριτάρι</td><td>Ασήμι</td><td>Θαλασσί και ασημί</td><td>ΑΙΓΟΚΕΡΩΣ</td></tr>
+        <tr><td class="mono">♌</td><td>ΛΕΩΝ</td><td>♂</td><td>Αρσενική / Ενεργητική</td><td>🜂</td><td>Φωτιά</td><td>Καλοκαίρι</td><td>Σταθερό</td><td>Ήλιος</td><td>Ρουμπίνι</td><td>Χρυσός</td><td>Χρυσό και πορτοκαλί</td><td>ΥΔΡΟΧΟΟΣ</td></tr>
+        <tr><td class="mono">♍</td><td>ΠΑΡΘΕΝΟΣ</td><td>♀</td><td>Θηλυκή / Παθητική</td><td>🜃</td><td>Γη</td><td>Καλοκαίρι</td><td>Μεταβλητό</td><td>Ερμής</td><td>Σάπφειρος</td><td>Υδράργυρος</td><td>Σκούρο μπλε και γκρι</td><td>ΙΧΘΕΙΣ</td></tr>
+        <tr><td class="mono">♎</td><td>ΖΥΓΟΣ</td><td>♀</td><td>Αρσενική / Ενεργητική</td><td>🜁</td><td>Αέρας</td><td>Φθινόπωρο</td><td>Παρορμητικό</td><td>Αφροδίτη</td><td>Οπάλιο</td><td>Χαλκός</td><td>Μπλε και λεβάντα</td><td>ΚΡΙΟΣ</td></tr>
+        <tr><td class="mono">♏</td><td>ΣΚΟΡΠΙΟΣ</td><td>♀</td><td>Θηλυκή / Παθητική</td><td>🜄</td><td>Νερό</td><td>Φθινόπωρο</td><td>Σταθερό</td><td>Πλούτωνας</td><td>Τοπάζι</td><td>Πλουτώνιο</td><td>Βυσσινί, Μπορντό, Μαρόν</td><td>ΤΑΥΡΟΣ</td></tr>
+        <tr><td class="mono">♐</td><td>ΤΟΞΟΤΗΣ</td><td>♀</td><td>Αρσενική / Ενεργητική</td><td>🜂</td><td>Φωτιά</td><td>Φθινόπωρο</td><td>Μεταβλητό</td><td>Δίας</td><td>Τυρκουάζ</td><td>Κασσίτερος</td><td>Μωβ</td><td>ΔΙΔΥΜΟΙ</td></tr>
+        <tr><td class="mono">♑</td><td>ΑΙΓΟΚΕΡΩΣ</td><td>♀</td><td>Θηλυκή / Παθητική</td><td>🜃</td><td>Γη</td><td>Χειμώνας</td><td>Παρορμητικό</td><td>Κρόνος</td><td>Γρανάτης</td><td>Μόλυβδος</td><td>Σκούρο πράσινο και καφέ</td><td>ΚΑΡΚΙΝΟΣ</td></tr>
+        <tr><td class="mono">♒</td><td>ΥΔΡΟΧΟΟΣ</td><td>♀</td><td>Αρσενική / Ενεργητική</td><td>🜁</td><td>Αέρας</td><td>Χειμώνας</td><td>Σταθερό</td><td>Ουρανός</td><td>Αμέθυστος</td><td>Ουράνιο</td><td>Ηλεκτρικό μπλε</td><td>ΛΕΩΝ</td></tr>
+        <tr><td class="mono">♓</td><td>ΙΧΘΕΙΣ</td><td>♀</td><td>Θηλυκή / Παθητική</td><td>🜄</td><td>Νερό</td><td>Χειμώνας</td><td>Μεταβλητό</td><td>Ποσειδώνας</td><td>Ακουαμαρίνα</td><td>Πλατίνα</td><td>Απαλό πράσινο και τιρκουάζ</td><td>ΠΑΡΘΕΝΟΣ</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+<script>
+  // Download CSV
+  function tableToCSV(table) {
+    const rows = Array.from(table.querySelectorAll('tr'));
+    return rows.map(row => {
+      const cells = Array.from(row.querySelectorAll('th,td'));
+      return cells.map(cell => {
+        let text = cell.textContent.trim();
+        if (text.indexOf('"') !== -1) text = text.replace(/"/g, '""');
+        if (text.indexOf(',') !== -1 || text.indexOf('\n') !== -1) text = '"' + text + '"';
+        return text;
+      }).join(',');
+    }).join('\n');
+  }
+
+  document.getElementById('downloadCsv').addEventListener('click', function(){
+    const table = document.getElementById('zodiacTable');
+    const csv = tableToCSV(table);
+    const blob = new Blob([csv], {type: 'text/csv;charset=utf-8;'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'zodiac_table.csv';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  });
+
+  document.getElementById('copyHtml').addEventListener('click', async function(){
+    const tableHtml = document.getElementById('zodiacTable').outerHTML;
+    try {
+      await navigator.clipboard.writeText(tableHtml);
+      alert('Ο πίνακας αντιγράφηκε στο πρόχειρο (HTML).');
+    } catch (e) {
+      alert('Αποτυχία αντιγραφής — δοκιμάστε να επιλέξετε και να αντιγράψετε χειροκίνητα.');
+    }
+  });
+
+  // Table search/filter
+  document.getElementById('tableSearch').addEventListener('input', function() {
+    const query = this.value.toLowerCase();
+    const rows = document.querySelectorAll('#zodiacTable tbody tr');
+    rows.forEach(row => {
+      const text = row.textContent.toLowerCase();
+      row.style.display = text.includes(query) ? '' : 'none';
+    });
+  });
+</script>
+<footer>
+        <p>&copy; 2025 Geoastrology • Όροι Χρήσης • Πολιτική Απορρήτου</p>
+</footer>
+</body>
+</html>

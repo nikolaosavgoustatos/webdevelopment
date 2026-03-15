@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <title>Επικοινωνία - Ορυκτά και Ζώδια</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <img src="geoastralogo.png" alt="Λογότυπο" width="80">
+        <h1>Ορυκτά και Ζώδια</h1>
+        <h2>Επικοινωνία</h2>
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Αρχική</a></li>
+            <li><a href="piechart.html">Ζωδιακός Κύκλος και Ορυκτά</a></li>
+            <li><a href="list2.html">Ζωδιακός Πίνακας</a></li>
+            <li><a href="references.html">Βιβλιογραφία και πηγές</a></li>
+            <li><a href="contact.html" class="active">Επικοινωνία</a></li>
+        </ul>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <section>
+            <h2>Επικοινωνήστε μαζί μας</h2>
+            <p>Για οποιαδήποτε ερώτηση ή πληροφορία, μπορείτε να μας στείλετε email στο:</p>
+            <p><a href="mailto:geoastrology@gmail.com">geoastrology@gmail.com</a></p>
+        </section>
+
+        <section>
+            <h2>Σημαντικές πληροφορίες</h2>
+            <p>Θα προσπαθήσουμε να απαντήσουμε στο email σας το συντομότερο δυνατό.</p>
+        </section>
+
+        <!-- CONTACT FORM -->
+        <section id="contact-form-section">
+            <h2>Φόρμα επικοινωνίας</h2>
+            <!--
+                TODO: Replace action="#" with your server endpoint or a form service (e.g. Formspree)
+                Example Formspree action: action="https://formspree.io/f/your-id"
+            -->
+            <form id="contact-form" action="#" method="post" novalidate>
+                <label for="name">Όνομα</label><br>
+                <input type="text" id="name" name="name" placeholder="Το όνομά σας" required><br>
+
+                <label for="email">Email</label><br>
+                <input type="email" id="email" name="email" placeholder="example@domain.com" required><br>
+
+                <label for="subject">Θέμα</label><br>
+                <input type="text" id="subject" name="subject" placeholder="Θέμα μηνύματος"><br>
+
+                <label for="message">Μήνυμα</label><br>
+                <textarea id="message" name="message" rows="6" placeholder="Το μήνυμά σας..." required></textarea><br>
+
+                <button type="submit">Αποστολή</button>
+            </form>
+        </section>
+
+        <!-- GOOGLE MAPS IFRAME (Passov 8, Galatsi 111 46) -->
+        <section id="map-section" aria-label="Χάρτης - Passov 8, Galatsi">
+            <h2>Τοποθεσία (Passov 8, Galatsi 111 46)</h2>
+            <div class="map-container" style="width:100%;max-width:1000px;margin:0 auto;">
+                <iframe
+                    src="https://www.google.com/maps?q=Passov+8,+Galatsi+11146&output=embed"
+                    width="100%"
+                    height="450"
+                    style="border:0;"
+                    allowfullscreen
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Χάρτης - Passov 8, Galatsi 111 46">
+                </iframe>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 Geoastrology • Όροι Χρήσης • Πολιτική Απορρήτου</p>
+    </footer>
+</body>
+</html>
+
+
